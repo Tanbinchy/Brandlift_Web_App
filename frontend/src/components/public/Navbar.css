@@ -1,0 +1,238 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar--scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(230, 0, 0, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--brand-dark);
+}
+
+.navbar__logo em {
+  font-style: normal;
+  color: var(--brand-gold);
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.navbar__link {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--brand-gray);
+  transition: var(--transition);
+}
+
+.navbar__link-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background: rgba(245, 166, 35, 0.2);
+  color: var(--brand-gold);
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  font-size: 0.78rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+.navbar__link:hover,
+.navbar__link.active {
+  color: var(--brand-dark);
+}
+
+.navbar__link.active {
+  color: var(--brand-gold);
+}
+
+.navbar__toggle {
+  display: none;
+  background: none;
+  color: var(--brand-dark);
+  padding: 4px;
+}
+
+.navbar__account-slot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__account {
+  position: relative;
+}
+
+.navbar__account-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 7px 12px;
+  color: var(--brand-white);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.navbar__account-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(245, 166, 35, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--brand-gold);
+  flex-shrink: 0;
+}
+
+.navbar__account-name {
+  display: block;
+}
+
+.navbar__account-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(230, 0, 0, 0.12);
+  border-radius: 10px;
+  min-width: 170px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  z-index: 200;
+  overflow: hidden;
+}
+
+.navbar__account-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  color: var(--brand-dark);
+  font-size: 0.87rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+  background: transparent;
+}
+
+.navbar__account-item:hover {
+  background: rgba(230, 0, 0, 0.05);
+}
+
+.navbar__account-item:last-child {
+  border-bottom: none;
+}
+
+.navbar__account-item--danger {
+  color: #fc8181;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 100%;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.navbar--scrolled .navbar__account-trigger {
+  background: rgba(230, 0, 0, 0.06);
+  border-color: rgba(230, 0, 0, 0.14);
+  color: var(--brand-dark);
+}
+
+@media (max-width: 910px) {
+  .navbar__toggle {
+    display: block;
+  }
+
+  .navbar__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 16px 24px 24px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(230, 0, 0, 0.15);
+  }
+
+  .navbar__links--open {
+    display: flex;
+  }
+
+  .navbar__link {
+    padding: 12px 8px;
+  }
+
+  .navbar__account-slot {
+    width: 100%;
+    display: block;
+    margin-top: 6px;
+  }
+
+  .navbar__account {
+    width: 100%;
+  }
+
+  .navbar__account-trigger {
+    width: 100%;
+    justify-content: flex-start;
+    background: rgba(230, 0, 0, 0.06);
+    border: 1px solid rgba(230, 0, 0, 0.14);
+    color: var(--brand-dark);
+    padding: 10px 12px;
+  }
+
+  .navbar__account-menu {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    margin-top: 8px;
+    box-shadow: none;
+  }
+}
