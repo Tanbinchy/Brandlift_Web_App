@@ -36,6 +36,7 @@ brandlift/
 5. Click **Connect** on your cluster → **Connect your application** → copy the URI
 
 Your URI looks like:
+
 ```
 mongodb+srv://youruser:yourpassword@cluster0.abcde.mongodb.net/?retryWrites=true&w=majority
 ```
@@ -71,28 +72,6 @@ FRONTEND_URL=http://localhost:5173
 
 ---
 
-## ✅ Step 3 — Seed the Database
-
-This fills MongoDB with sample data AND creates your admin account:
-
-```bash
-# Still inside brandlift/backend
-node seed.js
-```
-
-You will see:
-```
-✅ Seed completed successfully!
-
-📧 Admin Login:
-   Email:    admin@brandlift.com
-   Password: Admin@1234
-```
-
-> ⚠️ Change this password after your first login from **Admin → Settings → Change Password**
-
----
-
 ## ✅ Step 4 — Start the Backend
 
 ```bash
@@ -104,6 +83,7 @@ npm start
 ```
 
 You should see:
+
 ```
 ✅ MongoDB connected
 🚀 Server running on port 5000
@@ -128,6 +108,7 @@ cp .env.example .env
 ```
 
 The default `.env` for local development:
+
 ```env
 VITE_API_URL=http://localhost:5000/api
 ```
@@ -141,6 +122,7 @@ npm run dev
 ```
 
 You will see:
+
 ```
   VITE v5.x  ready in 300ms
   ➜  Local:   http://localhost:5173/
@@ -151,61 +133,66 @@ You will see:
 ## 🌐 Pages & URLs
 
 ### Public Website
-| Page       | URL                     |
-|------------|-------------------------|
-| Home       | http://localhost:5173/  |
-| Services   | /services               |
-| Portfolio  | /portfolio              |
-| Blog       | /blog                   |
-| Blog Post  | /blog/:slug             |
-| Pricing    | /pricing                |
-| Contact    | /contact                |
+
+| Page      | URL                    |
+| --------- | ---------------------- |
+| Home      | http://localhost:5173/ |
+| Services  | /services              |
+| Portfolio | /portfolio             |
+| Blog      | /blog                  |
+| Blog Post | /blog/:slug            |
+| Pricing   | /pricing               |
+| Contact   | /contact               |
 
 ### Admin Dashboard
-| Page          | URL                        |
-|---------------|----------------------------|
-| Login         | http://localhost:5173/admin/login |
-| Dashboard     | /admin                     |
-| Services      | /admin/services            |
-| Portfolio     | /admin/portfolio           |
-| Team          | /admin/team                |
-| Testimonials  | /admin/testimonials        |
-| Blog          | /admin/blog                |
-| Pricing       | /admin/pricing             |
-| Contacts      | /admin/contacts            |
-| Settings      | /admin/settings            |
+
+| Page         | URL                               |
+| ------------ | --------------------------------- |
+| Login        | http://localhost:5173/admin/login |
+| Dashboard    | /admin                            |
+| Services     | /admin/services                   |
+| Portfolio    | /admin/portfolio                  |
+| Team         | /admin/team                       |
+| Testimonials | /admin/testimonials               |
+| Blog         | /admin/blog                       |
+| Pricing      | /admin/pricing                    |
+| Contacts     | /admin/contacts                   |
+| Settings     | /admin/settings                   |
 
 ---
 
 ## 🔌 API Endpoints Reference
 
 ### Auth
-| Method | Endpoint                   | Access  |
-|--------|----------------------------|---------|
-| POST   | /api/auth/setup            | Public (with setup key) |
-| POST   | /api/auth/login            | Public  |
-| GET    | /api/auth/me               | Admin   |
-| PUT    | /api/auth/change-password  | Admin   |
+
+| Method | Endpoint                  | Access                  |
+| ------ | ------------------------- | ----------------------- |
+| POST   | /api/auth/setup           | Public (with setup key) |
+| POST   | /api/auth/login           | Public                  |
+| GET    | /api/auth/me              | Admin                   |
+| PUT    | /api/auth/change-password | Admin                   |
 
 ### All Resources (Services, Portfolio, Team, Testimonials, Blog, Pricing)
-| Method | Endpoint           | Access  |
-|--------|--------------------|---------|
-| GET    | /api/:resource     | Public  |
-| GET    | /api/:resource/:id | Public  |
-| POST   | /api/:resource     | Admin   |
-| PUT    | /api/:resource/:id | Admin   |
-| DELETE | /api/:resource/:id | Admin   |
+
+| Method | Endpoint           | Access |
+| ------ | ------------------ | ------ |
+| GET    | /api/:resource     | Public |
+| GET    | /api/:resource/:id | Public |
+| POST   | /api/:resource     | Admin  |
+| PUT    | /api/:resource/:id | Admin  |
+| DELETE | /api/:resource/:id | Admin  |
 
 ### Special Endpoints
-| Method | Endpoint                  | Access  |
-|--------|---------------------------|---------|
-| GET    | /api/blog/slug/:slug      | Public  |
-| GET    | /api/blog/admin/all       | Admin   |
-| POST   | /api/contacts             | Public (form submission) |
-| GET    | /api/contacts             | Admin   |
-| PUT    | /api/contacts/:id         | Admin   |
-| GET    | /api/settings             | Public  |
-| PUT    | /api/settings             | Admin   |
+
+| Method | Endpoint             | Access                   |
+| ------ | -------------------- | ------------------------ |
+| GET    | /api/blog/slug/:slug | Public                   |
+| GET    | /api/blog/admin/all  | Admin                    |
+| POST   | /api/contacts        | Public (form submission) |
+| GET    | /api/contacts        | Admin                    |
+| PUT    | /api/contacts/:id    | Admin                    |
+| GET    | /api/settings        | Public                   |
+| PUT    | /api/settings        | Admin                    |
 
 ---
 
@@ -253,6 +240,7 @@ You will see:
 ### Step C — Update CORS on Backend
 
 After deploying frontend, go back to Render → your service → Environment → update:
+
 ```
 FRONTEND_URL = https://brandlift.vercel.app
 ```
@@ -273,18 +261,18 @@ Redeploy the backend.
 
 ## 🛠️ Tech Stack Summary
 
-| Layer     | Technology                  |
-|-----------|-----------------------------|
-| Frontend  | React 18, React Router v6, Vite |
-| Styling   | Pure CSS with CSS Variables  |
-| Backend   | Node.js, Express.js          |
-| Database  | MongoDB Atlas + Mongoose     |
+| Layer     | Technology                       |
+| --------- | -------------------------------- |
+| Frontend  | React 18, React Router v6, Vite  |
+| Styling   | Pure CSS with CSS Variables      |
+| Backend   | Node.js, Express.js              |
+| Database  | MongoDB Atlas + Mongoose         |
 | Auth      | JWT (JSON Web Tokens) + bcryptjs |
-| HTTP      | Axios                        |
+| HTTP      | Axios                            |
 | Security  | Helmet, express-rate-limit, CORS |
-| Deploy FE | Vercel                       |
-| Deploy BE | Render                       |
-| Deploy DB | MongoDB Atlas (free M0)      |
+| Deploy FE | Vercel                           |
+| Deploy BE | Render                           |
+| Deploy DB | MongoDB Atlas (free M0)          |
 
 ---
 
